@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Simulation
+comment0.text=\r\n\ Simulation\ is\ the\ top-level\ class\ for\ the\ Aquarium\ simulation.\r\n\ \r\n\ @author\ (your\ name\ here\!)\ and\ Marc\ Price\r\n\ @version\ 0.6\r\n
+comment1.params=
+comment1.target=Simulation()
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Simulation\r\n
+comment2.params=
+comment2.target=void\ run()
+comment2.text=\r\n\ METHOD\:\ Run\ the\ simulation\ loop.\ \ User\ presses\ escape\ to\ exit.\r\n\r\n
+numComments=3
