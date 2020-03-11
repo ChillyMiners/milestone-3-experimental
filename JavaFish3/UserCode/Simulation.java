@@ -14,7 +14,7 @@ import Exceptions.*;
 /**
  * Simulation is the top-level class for the Aquarium simulation.
  * 
- * @author (your name here!) and Marc Price
+ * @author Dean Sisman and Marc Price
  * @version 0.6
  */
 public class Simulation
@@ -28,6 +28,13 @@ public class Simulation
         
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;
+    
+    
+    static void main()
+    {
+        Simulation simulation = new Simulation();
+        simulation.run();
+    }
 
     
     /**
