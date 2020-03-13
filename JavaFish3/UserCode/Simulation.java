@@ -34,6 +34,13 @@ public class Simulation
     // DECLARE a boolean that signals when the simulation loop should be exited:
     private boolean endSim = false;
     
+    //----------START OF CODE ADDED BY DEAN----------
+    // DECLARE an arraylist to hold references to IUpdatable, call it "_updatables"
+    private ArrayList<IUpdatable> _updatables;
+    
+    // DECLARE a reference to IUpdatableFactory, call it "_updatableFactory"
+    private IUpdatableFactory _updatableFactory;
+    //----------END OF CODE ADDED BY DEAN----------
     
     static void main()
     {
@@ -53,6 +60,12 @@ public class Simulation
         
         // _input:
         _input = (IInput) _world;
+        
+        // _updatables:
+        _updatables = new ArrayList<IUpdatable>();
+        
+        // _factory:
+        _updatableFactory = new UpdatableFactory();
     }
 
 
@@ -69,6 +82,18 @@ public class Simulation
         try
         {
             // ADD Objects to 3D world?:
+            try
+            {
+                IUpdatable javaFish = _updatableFactory.create(JavaFish.class);
+                _updatables.add(javaFish);
+               ((IPlaceable)javaFish).place(_world);
+            }
+            catch (Exception e)
+            {
+                //do nowt
+            }
+            
+            
             
             
         
