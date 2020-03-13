@@ -11,6 +11,11 @@ import Framework.Interfaces.*;
 import Framework.Implementations.*;
 import Exceptions.*;
 
+//----------START OF CODE ADDED BY DEAN----------
+import java.util.ArrayList;
+import UserCode.Pets.*;
+//----------END OF CODE ADDED BY DEAN----------
+
 /**
  * Simulation is the top-level class for the Aquarium simulation.
  * 

@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=UpdatableFactory()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ UpdatableFactory\r\n
+comment1.params=whichUpdatable
+comment1.target=Framework.Interfaces.IUpdatable\ create(java.lang.Class)
+comment1.text=\r\n\ Creates\ and\ returns\ a\ new\ instance\ of\ IUpdateable\r\n\ \r\n\ @param\ whichUpdatable\ specifies\ which\ class\ to\ create\ a\ new\ instance\ of\r\n\ @return\ the\ created\ instance\ \r\n
+numComments=2
