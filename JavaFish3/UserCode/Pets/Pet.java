@@ -2,6 +2,7 @@ package UserCode.Pets;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
 import Exceptions.*;
+import UserCode.Pets.SwimBehaviors.*;
 import java.util.Random;
 
 
@@ -18,6 +19,30 @@ public abstract class Pet implements IUpdatable, IPlaceable
     
     // DECLARE a reference to Random, call it _random
     protected Random _random;
+    
+    // DECLARE a reference to ISwimBehavior, call it _swimBehavior
+    protected ISwimBehavior _swimBehavior;
+    
+    //DECLARE a double for the pet's x position, call it "_xPos"
+    protected double _xPos;
+    
+    //DECLARE a double for the pet's y position, call it "_yPos"
+    protected double _yPos;
+    
+    //DECLARE a double for the pet's z position, call it "_zPos" and INITIALIZE to 0.1
+    protected double _zPos = 0.1;
+    
+    //DECLARE a double for the pet's x orientation, call it "_xRot" and INITLIALIZE TO 0
+    protected double _xRot = 0;
+    
+    //DECLARE a double for the pet's y orientation, call it "_yRot" and INITIALIZE to 90
+    protected double _yRot = -90;
+    
+    //DECLARE a double for the pet's z orientation, call it "_zRot" and INITLIALIZE to 0
+    protected double _zRot = 0;
+    
+    //DECLARE a double for the pet's movement speed, call it "_speed"
+    protected double _speed;
 
     /**
      * Constructor
@@ -30,16 +55,10 @@ public abstract class Pet implements IUpdatable, IPlaceable
     
     public void place(IWorld world, Random random) throws WorldDoesNotExistException
     {
-        // SET position of Lion by translating _displayObject:
-        _displayer.position(((random.nextDouble() * 6) + 1), ((random.nextDouble() * 6) + 1), 0.1);
-        
-        // SET orientation of Lion by rotating _displayObject:
-        _displayer.orientation(0, 90, 0);
+        // PASS the reference to Random
+        _random = random;
         
         // ADD to 3D world:
         world.addDisplayObject(_displayer);
-        
-        // PASS the reference to Random
-        _random = random;
     }
 }

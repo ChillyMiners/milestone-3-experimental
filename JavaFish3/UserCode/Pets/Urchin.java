@@ -1,4 +1,7 @@
 package UserCode.Pets;
+import java.util.Random;
+import Framework.Interfaces.*;
+import Exceptions.*;
 
 /**
  * Represents the Urchin
@@ -8,22 +11,47 @@ package UserCode.Pets;
  */
 public class Urchin extends Pet
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
     /**
      * Constructor for objects of class Urchin
      */
     public Urchin()
     {
-        super("textures/javaFish/Urchin.png", 0.15);
+        super("textures/javaFish/Urchin.png", 0.3);
     }
+    
+    
+    
+    // IMPLEMENTATION OF IPLACEABLE
+    
+    /**
+     * Places the pet in the world
+     *
+     * @param  world a reference to the IWorld
+     * @param random a reference to the Random class
+     */
+    public void place(IWorld world, Random random) throws WorldDoesNotExistException
+    {
+        super.place(world, random);
+        
+        // INITIALIZE _xPos to a random value between 1 and 7
+        _xPos = _random.nextDouble() * 6 + 1;
+        
+        // INITIALIZE _yPos to 0.5
+        _yPos = 0.5;
+        
+        // CALL the _displayer's position method
+        _displayer.position(_xPos, _yPos, _zPos);
+        
+        // CALL the _displayer's orientation method
+        _displayer.orientation(_xRot, _yRot, _zRot);
+    }
+    
+    
+    
+    // IMPLEMENTATION OF IUPDATABLE
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
+     * update method
      */
     public void update()
     {
