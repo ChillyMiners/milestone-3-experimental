@@ -49,13 +49,13 @@ public class Simulation
     private int _javaFishAmount = 10;
     
     // DECLARE an integer to control the amount of SeaHorse created, call it "_seaHorseAmount" and initialize to 1
-    private int _seaHorseAmount = 1;
+    private int _seaHorseAmount = 2;
     
     // DECLARE an integer to control the amount of Urchin created, call it "_urchinAmount" and initialize to 1
-    private int _urchinAmount = 1;
+    private int _urchinAmount = 2;
     
     // DECLARE an integer to control the amount of Piranha created, call it "_piranhaAmount" and initialize to 1
-    private int _piranhaAmount = 1;
+    private int _piranhaAmount = 2;
     //----------END OF CODE ADDED BY DEAN----------
     
     static void main()

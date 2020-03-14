@@ -17,10 +17,7 @@ public class SeaHorse extends Pet
      */
     public SeaHorse()
     {
-        super("textures/javaFish/Seahorse.png", 0.3);
-                
-        //INITIALIZE _swimBehavior to a new instance of BasicHorizontalSwim
-        _swimBehavior = new BasicHorizontalSwim(_position, 0.005);
+        
     }
     
     
@@ -35,17 +32,24 @@ public class SeaHorse extends Pet
      */
     public void place(IWorld world, Random random) throws WorldDoesNotExistException
     {
-        super.place(world, random);
+        super.place(world, random, "textures/javaFish/Seahorse.png", 0.3);
         
-        // CALL the _position methods to set the x and y positions to a random value between 1 and 7
-        _position.setXPos(_random.nextDouble() * 6 + 1);
-        _position.setYPos(_random.nextDouble() * 6 + 1);
+        _xPos = (_random.nextDouble() * 6) + 1;
+        _yPos = (_random.nextDouble() * 6) + 1;
+        _xRot = 180;
+        _yRot = 90;
         
         // CALL the _displayer's position method
-        _displayer.position(_position.getXPos(), _position.getYPos(), _position.getZPos());
+        _displayer.position(_xPos, _yPos, _zPos);
         
         // CALL the _displayer's orientation method
-        _displayer.orientation(_position.getXRot(), _position.getYRot(), _position.getZRot());
+        _displayer.orientation(_xRot, _yRot, _zRot);
+        
+        //DECLARE a double to store a randomly generated speed and INITIALIZE to a random value between 0.05 and 0.005
+        double _randomSpeed = (random.nextDouble() * 0.045) + 0.005;
+        
+        //INITIALIZE _swimBehavior to a new instance of BasicHorizontalSwim
+        _swimBehavior = new BasicHorizontalSwim(_xPos, _yPos, _zPos, _xRot, _yRot, _zRot, _randomSpeed, _displayer);
     }
     
     
@@ -57,13 +61,7 @@ public class SeaHorse extends Pet
      */
     public void update()
     {
-        // CALL the swimming behavior's SwimX method to get a new X position
-        //_newPos = _swimBehavior.swim(_position);
-        
-        // CALL the _displayer's position method
-        //_displayer.position(_newPos.getXPos(), _newPos.getYPos(), _newPos.getZPos());
-        
-        // CALL the _displayer's orientation method
-        //_displayer.orientation(_newPos.getXRot(), _newPos.getYRot(), _newPos.getZRot());
+        // CALL the swimming behavior's Swim method
+        _swimBehavior.swim();
     }
 }

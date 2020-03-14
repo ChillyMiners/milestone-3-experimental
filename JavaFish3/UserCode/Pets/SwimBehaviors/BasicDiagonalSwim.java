@@ -1,5 +1,7 @@
 package UserCode.Pets.SwimBehaviors;
-
+import UserCode.Pets.*;
+import Framework.Interfaces.*;
+import Framework.Implementations.*;
 
 /**
  * A basic diagonal swimming behavior for pets
