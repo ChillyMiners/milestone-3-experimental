@@ -1,4 +1,5 @@
 package UserCode.Pets;
+import UserCode.Pets.SwimBehaviors.*;
 import java.util.Random;
 import Framework.Interfaces.*;
 import Exceptions.*;
@@ -9,7 +10,7 @@ import Exceptions.*;
  * @author Dean Sisman
  * @version 1
  */
-public class JavaFish extends Pet
+public class JavaFish extends Pet implements IUpdatable
 {
     /**
      * Constructor for objects of class JavaFish
@@ -17,6 +18,11 @@ public class JavaFish extends Pet
     public JavaFish()
     {
         super("textures/javaFish/JavaFish.png", 0.15);
+        
+        System.out.print("test");
+        
+        _swimBehavior = new BasicHorizontalSwim();
+        _speed = 0.1;
     }
     
     
@@ -55,6 +61,11 @@ public class JavaFish extends Pet
      */
     public void update()
     {
-        // do nowt
+        System.out.print("test");
+        
+        _xPos = _swimBehavior.swimX(_xPos, _speed);
+        
+        // CALL the _displayer's position method
+        _displayer.position(_xPos, _yPos, _zPos);
     }
 }

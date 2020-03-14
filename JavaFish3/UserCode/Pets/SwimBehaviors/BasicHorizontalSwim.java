@@ -1,14 +1,21 @@
 package UserCode.Pets.SwimBehaviors;
-import java.util.ArrayList;
+
 
 /**
- * Write a description of interface ISwimBehavior here.
+ * Write a description of class BasicHorizontalSwim here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public interface ISwimBehavior
+public class BasicHorizontalSwim implements ISwimBehavior
 {
+    /**
+     * Constructor for objects of class BasicHorizontalSwim
+     */
+    public BasicHorizontalSwim()
+    {
+    }
+
     /**
      * Runs the horizontal swimming behavior for the pets
      * 
@@ -16,7 +23,11 @@ public interface ISwimBehavior
      * @param speed the pets movement speed
      * @return newPos, the new x position for the fish
      */
-    double swimX(double xPos, double speed);
+    public double swimX(double xPos, double speed)
+    {
+        double newPos = xPos + speed;
+        return newPos;
+    }
     
     /**
      * Runs the vertical swimming behavior for the pets
@@ -25,5 +36,8 @@ public interface ISwimBehavior
      * @param speed the pets movement speed
      * @return newPos, the new y position for the fish
      */
-    double swimY(double yPos, double speed);
+    public double swimY(double yPos, double speed)
+    {
+        return yPos;
+    }
 }

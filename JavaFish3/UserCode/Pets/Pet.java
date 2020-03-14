@@ -12,7 +12,7 @@ import java.util.Random;
  * @author Dean Sisman
  * @version 1
  */
-public abstract class Pet implements IUpdatable, IPlaceable
+public abstract class Pet implements IPlaceable, IUpdatable
 {
     // DECLARE a reference to IDisplayObject, call it _displayer
     protected IDisplayObject _displayer;
