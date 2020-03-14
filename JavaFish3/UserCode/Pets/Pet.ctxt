@@ -2,6 +2,6 @@
 comment0.params=texture\ scale
 comment0.target=Pet(java.lang.String,\ double)
 comment0.text=\r\n\ Constructor\r\n
-comment1.params=world
-comment1.target=void\ place(Framework.Interfaces.IWorld)
+comment1.params=world\ random
+comment1.target=void\ place(Framework.Interfaces.IWorld,\ java.util.Random)
 numComments=2

@@ -1,6 +1,7 @@
 package UserCode.Pets;
 import Framework.Interfaces.IWorld;
 import Exceptions.*;
+import java.util.Random;
 
 
 /**
@@ -16,5 +17,5 @@ public interface IPlaceable
      * 
      * @param world reference to the world
      */
-    void place(IWorld world) throws WorldDoesNotExistException;
+    void place(IWorld world, Random random) throws WorldDoesNotExistException;
 }

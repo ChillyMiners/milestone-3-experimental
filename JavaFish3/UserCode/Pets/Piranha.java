@@ -1,23 +1,22 @@
 package UserCode.Pets;
-import java.util.Random;
 
 /**
- * Represents the JavaFish
+ * Represents the Piranha
  * 
  * @author Dean Sisman
  * @version 1
  */
-public class JavaFish extends Pet
+public class Piranha extends Pet
 {
     // instance variables - replace the example below with your own
     private int x;
 
     /**
-     * Constructor for objects of class JavaFish
+     * Constructor for objects of class Piranha
      */
-    public JavaFish()
+    public Piranha()
     {
-        super("textures/javaFish/JavaFish.png", 0.15);
+        super("textures/javaFish/PiranhaRed.png", 0.2);
     }
 
     /**

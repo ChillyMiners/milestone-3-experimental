@@ -2,6 +2,7 @@ package UserCode.Pets;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
 import Exceptions.*;
+import java.util.Random;
 
 
 /**
@@ -14,6 +15,9 @@ public abstract class Pet implements IUpdatable, IPlaceable
 {
     // DECLARE a reference to IDisplayObject, call it _displayer
     protected IDisplayObject _displayer;
+    
+    // DECLARE a reference to Random, call it _random
+    protected Random _random;
 
     /**
      * Constructor
@@ -24,15 +28,18 @@ public abstract class Pet implements IUpdatable, IPlaceable
         _displayer = new DisplayObject("models/billboard/billboard.obj", texture, scale);
     }
     
-    public void place(IWorld world) throws WorldDoesNotExistException
+    public void place(IWorld world, Random random) throws WorldDoesNotExistException
     {
         // SET position of Lion by translating _displayObject:
-        _displayer.position(1, 1, 0.1);
+        _displayer.position(((random.nextDouble() * 6) + 1), ((random.nextDouble() * 6) + 1), 0.1);
         
         // SET orientation of Lion by rotating _displayObject:
         _displayer.orientation(0, 90, 0);
         
         // ADD to 3D world:
         world.addDisplayObject(_displayer);
+        
+        // PASS the reference to Random
+        _random = random;
     }
 }

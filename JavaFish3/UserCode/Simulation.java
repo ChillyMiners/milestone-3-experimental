@@ -13,6 +13,7 @@ import Exceptions.*;
 
 //----------START OF CODE ADDED BY DEAN----------
 import java.util.ArrayList;
+import java.util.Random;
 import UserCode.Pets.*;
 //----------END OF CODE ADDED BY DEAN----------
 
@@ -40,6 +41,21 @@ public class Simulation
     
     // DECLARE a reference to IUpdatableFactory, call it "_updatableFactory"
     private IUpdatableFactory _updatableFactory;
+    
+    // DECLARE a reference to Random, call it "_random"
+    private Random _random;
+    
+    // DECLARE an integer to control the amount of JavaFish created, call it "_javaFishAmount" and initialize to 10
+    private int _javaFishAmount = 10;
+    
+    // DECLARE an integer to control the amount of SeaHorse created, call it "_seaHorseAmount" and initialize to 1
+    private int _seaHorseAmount = 1;
+    
+    // DECLARE an integer to control the amount of Urchin created, call it "_urchinAmount" and initialize to 1
+    private int _urchinAmount = 1;
+    
+    // DECLARE an integer to control the amount of Piranha created, call it "_piranhaAmount" and initialize to 1
+    private int _piranhaAmount = 1;
     //----------END OF CODE ADDED BY DEAN----------
     
     static void main()
@@ -61,11 +77,16 @@ public class Simulation
         // _input:
         _input = (IInput) _world;
         
-        // _updatables:
+        //----------START OF CODE ADDED BY DEAN----------
+        // INITIALIZE _updatables to a new arraylist of IUpdatable
         _updatables = new ArrayList<IUpdatable>();
         
-        // _factory:
+        // INITLIALIZE _updatableFactory to a new reference to UpdatableFactory
         _updatableFactory = new UpdatableFactory();
+        
+        //INITIALIZE _random to a new reference to Random
+        _random = new Random();
+        //----------END OF CODE ADDED BY DEAN----------
     }
 
 
@@ -81,17 +102,9 @@ public class Simulation
         // User try - catch to ensure 3D world was successfully created:
         try
         {
-            // ADD Objects to 3D world?:
-            try
-            {
-                IUpdatable javaFish = _updatableFactory.create(JavaFish.class);
-                _updatables.add(javaFish);
-               ((IPlaceable)javaFish).place(_world);
-            }
-            catch (Exception e)
-            {
-                //do nowt
-            }
+            //CALL the createFish method
+            createFish();
+            
             
             
             
@@ -128,5 +141,55 @@ public class Simulation
         }
 
     }
+    
+    
+    /**
+     * Uses loops to call the IUpdatableFactory's method to create new instances of each fish type
+     */
+    private void createFish()
+    {
+        try
+        {
+            //FOR the amount specified in _javaFishAmount
+            for (int i = 0; i < _javaFishAmount; i++)
+            {
+                //CALL the factory create method to make  instances of JavaFish
+                _updatables.add(_updatableFactory.create(JavaFish.class));
+            }
+            
+            //FOR the amount specified in _seaHorseAmount
+            for (int i = 0; i < _seaHorseAmount; i++)
+            {
+                //CALL the factory create method to make  instances of SeaHorse
+                _updatables.add(_updatableFactory.create(SeaHorse.class));
+            }
+            
+            //FOR the amount specified in _urchinAmount
+            for (int i = 0; i < _urchinAmount; i++)
+            {
+                //CALL the factory create method to make  instances of Urchin
+                _updatables.add(_updatableFactory.create(Urchin.class));
+            }
+            
+            //FOR the amount specified in _piranhaAmount
+            for (int i = 0; i < _piranhaAmount; i++)
+            {
+                //CALL the factory create method to make  instances of Piranha
+                _updatables.add(_updatableFactory.create(Piranha.class));
+            }
+            
+            //Place all elements in _updatables in the aquarium
+            for (int i = 0; i < _updatables.size(); i++)
+            {
+                ((IPlaceable)_updatables.get(i)).place(_world, _random);
+                
+            }
+        }
+        catch (Exception e)
+        {
+            //Don't do anything
+        }
+    }
+    
 
 }
