@@ -20,29 +20,14 @@ public abstract class Pet implements IPlaceable, IUpdatable
     // DECLARE a reference to Random, call it _random
     protected Random _random;
     
+    // DECLARE a reference to IPositionStorage, call it _position
+    protected IPositionStorage _position;
+    
+    // DECLARE a reference to IPositionStorage, call it _newPos
+    //protected IPositionStorage _newPos;
+    
     // DECLARE a reference to ISwimBehavior, call it _swimBehavior
     protected ISwimBehavior _swimBehavior;
-    
-    //DECLARE a double for the pet's x position, call it "_xPos"
-    protected double _xPos;
-    
-    //DECLARE a double for the pet's y position, call it "_yPos"
-    protected double _yPos;
-    
-    //DECLARE a double for the pet's z position, call it "_zPos" and INITIALIZE to 0.1
-    protected double _zPos = 0.1;
-    
-    //DECLARE a double for the pet's x orientation, call it "_xRot" and INITLIALIZE TO 0
-    protected double _xRot = 0;
-    
-    //DECLARE a double for the pet's y orientation, call it "_yRot" and INITIALIZE to 90
-    protected double _yRot = -90;
-    
-    //DECLARE a double for the pet's z orientation, call it "_zRot" and INITLIALIZE to 0
-    protected double _zRot = 0;
-    
-    //DECLARE a double for the pet's movement speed, call it "_speed"
-    protected double _speed;
 
     /**
      * Constructor
@@ -57,6 +42,9 @@ public abstract class Pet implements IPlaceable, IUpdatable
     {
         // PASS the reference to Random
         _random = random;
+        
+        // CREATE a new instance of PositionStorage for _position
+        _position = new PositionStorage();
         
         // ADD to 3D world:
         world.addDisplayObject(_displayer);

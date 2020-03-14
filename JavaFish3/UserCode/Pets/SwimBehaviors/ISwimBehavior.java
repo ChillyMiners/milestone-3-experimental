@@ -1,29 +1,20 @@
 package UserCode.Pets.SwimBehaviors;
 import java.util.ArrayList;
+import UserCode.Pets.*;
 
 /**
- * Write a description of interface ISwimBehavior here.
+ * Interfaces the various swimming behaviors a pet can use
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dean Sisman 
+ * @version 1
  */
 public interface ISwimBehavior
 {
     /**
-     * Runs the horizontal swimming behavior for the pets
+     * Runs the  swimming behavior for the pets
      * 
-     * @param xPos the pets x position
-     * @param speed the pets movement speed
-     * @return newPos, the new x position for the fish
+     * @param position the pets position
+     * @return newPos, the new position for the fish
      */
-    double swimX(double xPos, double speed);
-    
-    /**
-     * Runs the vertical swimming behavior for the pets
-     * 
-     * @param yPos the pets y position
-     * @param speed the pets movement speed
-     * @return newPos, the new y position for the fish
-     */
-    double swimY(double yPos, double speed);
+    IPositionStorage swim(IPositionStorage position);
 }

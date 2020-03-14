@@ -1,8 +1,5 @@
 #BlueJ class context
-comment0.params=xPos\ speed
-comment0.target=double\ swimX(double,\ double)
-comment0.text=\r\n\ Runs\ the\ horizontal\ swimming\ behavior\ for\ the\ pets\r\n\ \r\n\ @param\ xPos\ the\ pets\ x\ position\r\n\ @param\ speed\ the\ pets\ movement\ speed\r\n\ @return\ newPos,\ the\ new\ x\ position\ for\ the\ fish\r\n
-comment1.params=yPos\ speed
-comment1.target=double\ swimY(double,\ double)
-comment1.text=\r\n\ Runs\ the\ vertical\ swimming\ behavior\ for\ the\ pets\r\n\ \r\n\ @param\ yPos\ the\ pets\ y\ position\r\n\ @param\ speed\ the\ pets\ movement\ speed\r\n\ @return\ newPos,\ the\ new\ y\ position\ for\ the\ fish\r\n
-numComments=2
+comment0.params=position
+comment0.target=UserCode.Pets.IPositionStorage\ swim(UserCode.Pets.IPositionStorage)
+comment0.text=\r\n\ Runs\ the\ \ swimming\ behavior\ for\ the\ pets\r\n\ \r\n\ @param\ position\ the\ pets\ position\r\n\ @return\ newPos,\ the\ new\ position\ for\ the\ fish\r\n
+numComments=1

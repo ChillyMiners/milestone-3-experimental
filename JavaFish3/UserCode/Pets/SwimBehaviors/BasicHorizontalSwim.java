@@ -1,43 +1,52 @@
 package UserCode.Pets.SwimBehaviors;
-
+import UserCode.Pets.*;
 
 /**
- * Write a description of class BasicHorizontalSwim here.
+ * The basic horizontal swim used by most fish
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Dean Sisman
+ * @version 1
  */
 public class BasicHorizontalSwim implements ISwimBehavior
 {
+    //DECLARE a reference to IPositionStorage, call it "_newPos"
+    private IPositionStorage _newPos;
+    
+    //DECLARE a double to control the movement speed, call it "_speed"
+    private double _speed;
+    
+    //DECLARE a double to control the horizontal movement direction, call it "_xSwimDir"
+    private double _xSwimDir = 1;
+    
     /**
      * Constructor for objects of class BasicHorizontalSwim
      */
-    public BasicHorizontalSwim()
+    public BasicHorizontalSwim(IPositionStorage position, double speed)
     {
+        //CALL the _newPos methods to copy over the values from the passed PositionStorage
+        _newPos.setXPos( position.getXPos() );
+        _newPos.setYPos( position.getYPos() );
+        _newPos.setXPos( position.getXPos() );
+        _newPos.setXRot( position.getXRot() );
+        _newPos.setYRot( position.getYRot() );
+        _newPos.setZRot( position.getZRot() );
+        
+        //INITIATE _speed to the value of the parameter "speed"
+        _speed = speed;
     }
 
     /**
-     * Runs the horizontal swimming behavior for the pets
+     * Runs the swimming behavior for the pet
      * 
-     * @param xPos the pets x position
-     * @param speed the pets movement speed
-     * @return newPos, the new x position for the fish
+     * @param position the pets position
+     * @return _newPos, the new x position for the fish
      */
-    public double swimX(double xPos, double speed)
+    public IPositionStorage swim(IPositionStorage position)
     {
-        double newPos = xPos + speed;
-        return newPos;
-    }
-    
-    /**
-     * Runs the vertical swimming behavior for the pets
-     * 
-     * @param yPos the pets y position
-     * @param speed the pets movement speed
-     * @return newPos, the new y position for the fish
-     */
-    public double swimY(double yPos, double speed)
-    {
-        return yPos;
+        // CALCULATE the new x position
+        _newPos.setXPos( position.getXPos() + _speed * _xSwimDir );
+        
+        // RETURN the new position
+        return _newPos;
     }
 }

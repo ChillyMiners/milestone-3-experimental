@@ -105,11 +105,6 @@ public class Simulation
             //CALL the createFish method
             createFish();
             
-            
-            
-            
-            
-        
             // Start simulation loop:
             while (!endSim)
             {
@@ -122,8 +117,10 @@ public class Simulation
                 }
                         
                 // UPDATE Objects in 3D world:
-                
-                
+                for (int i = 0; i < _updatables.size(); i++)
+                {
+                    _updatables.get(i).update();
+                }
             
                 // UPDATE 3D World:
                 // Apply all updates to the environment.
@@ -178,11 +175,11 @@ public class Simulation
                 _updatables.add(_updatableFactory.create(Piranha.class));
             }
             
-            //Place all elements in _updatables in the aquarium
+            //For all the elements in _updatables
             for (int i = 0; i < _updatables.size(); i++)
             {
+                //CALL the place method in all _updatables
                 ((IPlaceable)_updatables.get(i)).place(_world, _random);
-                
             }
         }
         catch (Exception e)

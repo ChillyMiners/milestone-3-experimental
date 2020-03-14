@@ -2,6 +2,7 @@ package UserCode.Pets;
 import java.util.Random;
 import Framework.Interfaces.*;
 import Exceptions.*;
+import UserCode.Pets.SwimBehaviors.*;
 
 /**
  * Represents the Piranha
@@ -17,6 +18,9 @@ public class Piranha extends Pet
     public Piranha()
     {
         super("textures/javaFish/PiranhaRed.png", 0.3);
+                
+        //INITIALIZE _swimBehavior to a new instance of BasicHorizontalSwim
+        _swimBehavior = new BasicHorizontalSwim(_position, 0.005);
     }
     
     
@@ -33,17 +37,15 @@ public class Piranha extends Pet
     {
         super.place(world, random);
         
-        // INITIALIZE _xPos to a random value between 1 and 7
-        _xPos = _random.nextDouble() * 6 + 1;
-        
-        // INITIALIZE _yPos to a random value between 1 and 7
-        _yPos = _random.nextDouble() * 6 + 1;
+        // CALL the _position methods to set the x and y positions to a random value between 1 and 7
+        _position.setXPos(_random.nextDouble() * 6 + 1);
+        _position.setYPos(_random.nextDouble() * 6 + 1);
         
         // CALL the _displayer's position method
-        _displayer.position(_xPos, _yPos, _zPos);
+        _displayer.position(_position.getXPos(), _position.getYPos(), _position.getZPos());
         
         // CALL the _displayer's orientation method
-        _displayer.orientation(_xRot, _yRot, _zRot);
+        _displayer.orientation(_position.getXRot(), _position.getYRot(), _position.getZRot());
     }
     
     
@@ -55,6 +57,13 @@ public class Piranha extends Pet
      */
     public void update()
     {
-        // do nowt
+        // CALL the swimming behavior's SwimX method to get a new X position
+        //_newPos = _swimBehavior.swim(_position);
+        
+        // CALL the _displayer's position method
+        //_displayer.position(_newPos.getXPos(), _newPos.getYPos(), _newPos.getZPos());
+        
+        // CALL the _displayer's orientation method
+        //_displayer.orientation(_newPos.getXRot(), _newPos.getYRot(), _newPos.getZRot());
     }
 }
