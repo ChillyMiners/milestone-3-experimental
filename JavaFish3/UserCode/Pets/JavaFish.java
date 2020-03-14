@@ -5,7 +5,7 @@ import Framework.Interfaces.*;
 /**
  * Write a description of class JavaFish here.
  * 
- * @author (your name) 
+ * @author Dean Sisman
  * @version (a version number or a date)
  */
 public class JavaFish extends Pet
@@ -18,7 +18,7 @@ public class JavaFish extends Pet
      */
     public JavaFish()
     {
-        super("textures/javaFish/JavaFish.png", 0.4);
+        super("textures/javaFish/JavaFish.png", 0.15);
     }
 
     /**
