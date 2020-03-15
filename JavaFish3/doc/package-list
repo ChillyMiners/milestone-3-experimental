@@ -1,3 +1,8 @@
 Exceptions
-Framework
+Framework.Implementations
+Framework.Interfaces
 UserCode
+UserCode.Bubbles
+UserCode.Input
+UserCode.Pets
+UserCode.Pets.SwimBehaviors
