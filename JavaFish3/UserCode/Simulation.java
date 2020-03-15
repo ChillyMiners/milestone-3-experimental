@@ -63,14 +63,13 @@ public class Simulation
     
     // DECLARE an integer to control the amount of Bubble created, call it "_bubbleAmount" and initialize to 30
     private int _bubbleAmount = 30;
-    //----------END OF CODE ADDED BY DEAN----------
     
     static void main()
     {
         Simulation simulation = new Simulation();
         simulation.run();
     }
-
+    //----------END OF CODE ADDED BY DEAN----------
     
     /**
      * Constructor for objects of class Simulation
@@ -136,10 +135,8 @@ public class Simulation
                 //CALL the bubble managers add bubbles method and send the arraylist of bubbles
                 _bubbleManager.addBubbles(_bubbles);
             }
-            
-            
-            
             //----------END OF CODE ADDED BY DEAN----------
+            
             // Start simulation loop:
             while (!endSim)
             {
