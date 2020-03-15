@@ -55,7 +55,10 @@ public class SeaHorse extends Pet implements IEmitsBubbles
         double _randomSpeed = (random.nextDouble() * 0.045) + 0.005;
         
         //INITIALIZE _swimBehavior to a new instance of BasicHorizontalSwim
-        _swimBehavior = new BasicHorizontalSwim(_xPos, _yPos, _zPos, _xRot, _yRot, _zRot, _randomSpeed, _displayer);
+        _swimBehavior = new BasicDiagonalSwim();
+        
+        //CALL the _swimBehavior initialize method
+        _swimBehavior.initialize(_xPos, _yPos, _zPos, _xRot, _yRot, _zRot, _randomSpeed, _displayer);
     }
     
     

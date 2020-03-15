@@ -3,13 +3,14 @@ import UserCode.Pets.*;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
 
+
 /**
- * A basic horizontal swimming behavior for pets
+ * A horizontal swimmimng behavior where the fish always faces the direction of movement
  * 
  * @author Dean Sisman
  * @version 1
  */
-public class BasicHorizontalSwim implements ISwimBehavior
+public class HorizontalAlwaysFacingDirection implements ISwimBehavior
 {
     //DECLARE doubles to represent the positions of the pet
     private double _xPos;
@@ -29,9 +30,9 @@ public class BasicHorizontalSwim implements ISwimBehavior
     private IDisplayObject _display;
     
     /**
-     * Constructor for objects of class BasicHorizontalSwim
+     * Constructor for objects of class HorizontalAlwaysFacingDirection
      */
-    public BasicHorizontalSwim()
+    public HorizontalAlwaysFacingDirection()
     {
         
     }
@@ -56,6 +57,9 @@ public class BasicHorizontalSwim implements ISwimBehavior
         {
             // REVERSE _xDirection:
             _xSwimDir = - _xSwimDir;
+            
+            // REVERSE Y orientation:
+            _yRot = - _yRot;
         }
         
         // CALL the _displayer's position method
