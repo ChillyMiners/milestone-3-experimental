@@ -4,7 +4,7 @@ import Framework.Interfaces.*;
 import Framework.Implementations.*;
 
 /**
- * The basic horizontal swim used by most fish
+ * A basic horizontal swimming behavior for pets
  * 
  * @author Dean Sisman
  * @version 1

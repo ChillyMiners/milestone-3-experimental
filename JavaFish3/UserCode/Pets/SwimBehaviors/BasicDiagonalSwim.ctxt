@@ -1,11 +1,14 @@
 #BlueJ class context
-comment0.params=
-comment0.target=BasicDiagonalSwim()
+comment0.params=xPos\ yPos\ zPos\ xRot\ yRot\ zRot\ speed\ display
+comment0.target=BasicDiagonalSwim(double,\ double,\ double,\ double,\ double,\ double,\ double,\ Framework.Interfaces.IDisplayObject)
 comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ BasicDiagonalSwim\r\n
-comment1.params=xPos\ speed
-comment1.target=double\ swimX(double,\ double)
-comment1.text=\r\n\ Runs\ the\ horizontal\ swimming\ behavior\ for\ the\ pets\r\n\ \r\n\ @param\ xPos\ the\ pets\ x\ position\r\n\ @param\ speed\ the\ pets\ movement\ speed\r\n\ @return\ newPos,\ the\ new\ x\ position\ for\ the\ fish\r\n
-comment2.params=yPos\ speed
-comment2.target=double\ swimY(double,\ double)
-comment2.text=\r\n\ Runs\ the\ vertical\ swimming\ behavior\ for\ the\ pets\r\n\ \r\n\ @param\ yPos\ the\ pets\ y\ position\r\n\ @param\ speed\ the\ pets\ movement\ speed\r\n\ @return\ newPos,\ the\ new\ y\ position\ for\ the\ fish\r\n
-numComments=3
+comment1.params=
+comment1.target=void\ swim()
+comment1.text=\r\n\ Runs\ the\ swimming\ behavior\ for\ the\ pet\r\n\ \r\n\ @param\ position\ the\ pets\ position\r\n\ @return\ _newPos,\ the\ new\ x\ position\ for\ the\ fish\r\n
+comment2.params=
+comment2.target=double\ getXPos()
+comment2.text=\r\n\ Gets\ the\ pets\ x\ position\r\n\ @return\ the\ pets\ x\ position\r\n\ \r\n
+comment3.params=
+comment3.target=double\ getYPos()
+comment3.text=\r\n\ Gets\ the\ pets\ y\ position\r\n\ @return\ the\ pets\ y\ position\r\n\ \r\n
+numComments=4
