@@ -87,7 +87,7 @@ public class InputDeclarer implements IInputDeclarer, IUpdatable
                 _mouseInput = _input.getMousePointer();
                 
                 //FOR every member in _observers
-                for (int i = 0; i > _observers.size(); i++)
+                for (int i = 0; i < _observers.size(); i++)
                 {
                     //CALL the observers inputResponse method, passing the mouse input data
                     (_observers.get(i)).inputResponse(_mouseInput);

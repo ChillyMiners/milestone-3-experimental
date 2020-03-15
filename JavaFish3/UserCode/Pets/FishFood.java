@@ -10,7 +10,7 @@ import Exceptions.*;
  * @author Dean Sisman
  * @version 1
  */
-public class FishFood implements IPlaceable
+public class FishFood implements IPlaceable, IUpdatable
 {
     // DECLARE a reference to IDisplayObject, call it _displayer
     private IDisplayObject _displayer;
@@ -51,34 +51,38 @@ public class FishFood implements IPlaceable
     public void place(IWorld world, Random random) throws WorldDoesNotExistException
     {
         // CREATE a new instance of DisplayObject for _displayer
-        _displayer = new DisplayObject("models/billboard/billboard.obj",
-                                       "textures/javaFish/Seahorse.png", 0.3);
+        _displayer = new DisplayObject("sphere", "textures/javaFish/Seahorse.png", 0.05);
         
         // PASS the reference to Random
         _random = random;
         
-        _xPos = 1;
-        _yPos = 1;
+        _xPos = (_random.nextDouble() * 6) + 1;
+        _yPos = (_random.nextDouble() * 6) + 1;
         _zPos = 0.1;
         _xRot = 0;
-        _yRot = -90;
+        _yRot = 90;
         _zRot = 0;
         
         // ADD to 3D world:
         world.addDisplayObject(_displayer);
+        
+        // CALL the _displayer's position method
+        _displayer.position(_xPos, _yPos, _zPos);
+        
+        // CALL the _displayer's orientation method
+        _displayer.orientation(_xRot, _yRot, _zRot);
     }
     
     public void place(IWorld world, Random random, double xPos, double yPos) throws WorldDoesNotExistException
     {
         // CREATE a new instance of DisplayObject for _displayer
-        _displayer = new DisplayObject("models/billboard/billboard.obj",
-                                       "textures/javaFish/Seahorse.png", 0.3);
+        _displayer = new DisplayObject("sphere", "textures/javaFish/FishFood.png", 0.05);
         
         // PASS the reference to Random
         _random = random;
         
-        _xPos = xPos;
-        _yPos = yPos;
+        _xPos = xPos + 0.1;
+        _yPos = yPos + 0.2;
         _zPos = 0.1;
         _xRot = 0;
         _yRot = -90;
@@ -86,6 +90,32 @@ public class FishFood implements IPlaceable
         
         // ADD to 3D world:
         world.addDisplayObject(_displayer);
+        
+        // CALL the _displayer's position method
+        _displayer.position(_xPos, _yPos, _zPos);
+        
+        // CALL the _displayer's orientation method
+        _displayer.orientation(_xRot, _yRot, _zRot);
+    }
+    
+    
+    
+    // IMPLEMENTATION OF IUPDATABLE
+
+    /**
+     * update method
+     */
+    public void update()
+    {
+        if (_yPos > 0.4)
+        {
+            // DECREMENT y position by 0.005
+            _yPos -= 0.005;
+            
+            // CALL the _displayer's position method
+            _displayer.position(_xPos, _yPos, _zPos);
+        }
+        
     }
 
 }

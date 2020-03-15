@@ -68,6 +68,9 @@ public class Simulation implements IInputObserver
     // DEVLARE an array of integers to hold the mouse input, call it "_mouseInput" and initialize to 0,0
     private int[] _mouseInput = {0,0};
     
+    // DECLARE a reference to IInputDeclarer, call it "_inputDeclarer"
+    private IInputDeclarer _inputDeclarer;
+    
     static void main()
     {
         Simulation simulation = new Simulation();
@@ -96,6 +99,18 @@ public class Simulation implements IInputObserver
         
         //INITIALIZE _random to a new reference to Random
         _random = new Random();
+        
+        //INITLIALIZE _inputDeclarer to a new instance of InputDeclarer
+        _inputDeclarer = new InputDeclarer();
+        
+        //CALL the _inputDeclarer's initlialize method
+        _inputDeclarer.initialize(_input);
+        
+        //ADD the input declarer to the list of _updatables
+        _updatables.add((IUpdatable)_inputDeclarer);
+        
+        //CALL the _inputDeclarer's addObserver method
+        _inputDeclarer.addObserver(this);
         //----------END OF CODE ADDED BY DEAN----------
     }
 
@@ -223,8 +238,11 @@ public class Simulation implements IInputObserver
             //For all the elements in _updatables
             for (int i = 0; i < _updatables.size(); i++)
             {
-                //CALL the place method in all _updatables
-                ((IPlaceable)_updatables.get(i)).place(_world, _random);
+                if ((_updatables.get(i)) instanceof IPlaceable)
+                {
+                    //CALL the place method in all _updatables
+                    ((IPlaceable)_updatables.get(i)).place(_world, _random);
+                }
             }
         }
         catch (Exception e)
@@ -247,19 +265,21 @@ public class Simulation implements IInputObserver
         //SET the values for mouse data to the parameter
         _mouseInput = input;
         
-        // COMPUTE the position/orientation for the new lion from mouseVal:
-        Double posn[] = {_mouseInput[0]*0.0077, _mouseInput[1]*0.0077, 1.0};
-        Double angle[]= {0.0,90.0,0.0};
+        // DECLARE a double for the x position of the fish food, call it "_xPos" and INITLIALIZE to the mouse input multiplied by 0.0077
+        double _xPos = _mouseInput[0]*0.0077;
+        
+        // DECLARE a double for the y position of the fish food, call it "_yPos" and INITLIALIZE to the mouse input multiplied by 0.0077
+        double _yPos = _mouseInput[1]*0.0077;
         try
         {
-             // INSTANTIATE the new lion as an IUpdatable, call it 'lion':
-             //IUpdatable lion = _factory.create(Lion.class);
-             
-             // ADD lion to _updatables:
-             //_updatables.add(lion);
-             
-             // SPAWN lion in 3D world:
-             //((ISpawnable) lion).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2]);
+            //DECLARE a reference to IPlaceable to temporarily store the fish food, call it _fishFood and INITLIALIZE to a new instance of fishFood
+            IUpdatable _fishFood = new FishFood();
+            
+            //CALL the factory create method to make  instances of SeaFood
+            _updatables.add(_fishFood);
+            
+            // CALL the seafood's place method
+            ((IPlaceable)_fishFood).place(_world, _random, _xPos, _yPos);
         }
         catch (Exception e)
         {
