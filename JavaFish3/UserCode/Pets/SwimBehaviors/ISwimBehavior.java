@@ -17,4 +17,18 @@ public interface ISwimBehavior
      * 
      */
     void swim();
+    
+    /**
+     * Gets the pets x position
+     * @return the pets x position
+     * 
+     */
+    double getXPos();
+    
+    /**
+     * Gets the pets y position
+     * @return the pets y position
+     * 
+     */
+    double getYPos();
 }

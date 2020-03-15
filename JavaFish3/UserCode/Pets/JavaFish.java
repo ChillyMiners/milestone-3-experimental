@@ -13,9 +13,11 @@ import UserCode.Bubbles.*;
  */
 public class JavaFish extends Pet implements IEmitsBubbles
 {
-    //DECLARE a reference to IBubbleManager, call it "_bubbleManager"
+    // DECLARE a reference to the IBubbleManager interface, call it _bubbleManager:
     IBubbleManager _bubbleManager;
     
+    // DECLARE an integer to control the rate at which bubbles are emitted, call it _bubbleSpawn:
+    private int _bubbleSpawn;
     /**
      * Constructor for objects of class JavaFish
      */
@@ -65,6 +67,10 @@ public class JavaFish extends Pet implements IEmitsBubbles
     {
         // CALL the swimming behavior's Swim method
         _swimBehavior.swim();
+        
+        // CALL the emit bubble method
+        emitBubble();
+        
     }
         
     
@@ -77,8 +83,18 @@ public class JavaFish extends Pet implements IEmitsBubbles
      */
     public void emitBubble()
     {
-        //CALL the bubble managers placeBubble method
-        _bubbleManager.placeBubble(_xPos, _yPos);
+        //INCREMENT _bubbleSpawn by 1
+        _bubbleSpawn ++;
+        
+        //IF _bubbleSpawn is greater than 120
+        if (_bubbleSpawn > 120)
+        {
+             //CALL the bubble managers place bubble method
+             _bubbleManager.placeBubble(_swimBehavior.getXPos(), _swimBehavior.getYPos());
+             
+             //SET the value of _bubbleSpawn to 0
+             _bubbleSpawn = _random.nextInt(10);
+        }
     }
     
     /**

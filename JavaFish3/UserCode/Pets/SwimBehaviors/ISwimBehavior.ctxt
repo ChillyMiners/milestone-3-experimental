@@ -2,4 +2,10 @@
 comment0.params=
 comment0.target=void\ swim()
 comment0.text=\r\n\ Runs\ the\ \ swimming\ behavior\ for\ the\ pets\r\n\ \r\n
-numComments=1
+comment1.params=
+comment1.target=double\ getXPos()
+comment1.text=\r\n\ Gets\ the\ pets\ x\ position\r\n\ @return\ the\ pets\ x\ position\r\n\ \r\n
+comment2.params=
+comment2.target=double\ getYPos()
+comment2.text=\r\n\ Gets\ the\ pets\ y\ position\r\n\ @return\ the\ pets\ y\ position\r\n\ \r\n
+numComments=3

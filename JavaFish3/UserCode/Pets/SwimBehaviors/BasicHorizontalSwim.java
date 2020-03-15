@@ -47,6 +47,10 @@ public class BasicHorizontalSwim implements ISwimBehavior
         //PASS the reference of IDisplayObject to _display
         _display = display;
     }
+    
+    
+    
+    //IMPLEMENTATION OF ISWIMBEHAVIOR
 
     /**
      * Runs the swimming behavior for the pet
@@ -74,5 +78,25 @@ public class BasicHorizontalSwim implements ISwimBehavior
         
         // CALL the _displayer's orientation method
         _display.orientation(_xRot, _yRot, _zRot);
+    }
+    
+    /**
+     * Gets the pets x position
+     * @return the pets x position
+     * 
+     */
+    public double getXPos()
+    {
+        return _xPos;
+    }
+    
+    /**
+     * Gets the pets y position
+     * @return the pets y position
+     * 
+     */
+    public double getYPos()
+    {
+        return _yPos;
     }
 }

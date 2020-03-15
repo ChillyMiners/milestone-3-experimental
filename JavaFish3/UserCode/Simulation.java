@@ -43,6 +43,9 @@ public class Simulation
     // DECLARE a reference to IUpdatableFactory, call it "_updatableFactory"
     private IUpdatableFactory _updatableFactory;
     
+    // DECLARE a reference to IBubbleManager, call it "_bubbleManager"
+    private IBubbleManager _bubbleManager;
+    
     // DECLARE a reference to Random, call it "_random"
     private Random _random;
     
@@ -110,20 +113,28 @@ public class Simulation
             //CALL the createFish method
             createFish();
             
-            IBubbleManager _bubbleManager = new BubbleManager();
+            _bubbleManager = new BubbleManager();
+            ArrayList<IUpdatable> _bubbles = new ArrayList<IUpdatable>();
             
             //For all the elements in _updatables
             for (int i = 0; i < _updatables.size(); i++)
             {
+                //IF the element is an instance of IEmitsBubble
                 if ((_updatables.get(i)) instanceof IEmitsBubbles)
                 {
-                    System.out.println("this class emits bubbles");
+                    //CALL its addBubbleManager method to pass it a reference to the bubble manager
+                    ((IEmitsBubbles)_updatables.get(i)).addBubbleManager(_bubbleManager);
                 }
-                else
+                
+                //IF the element is an instance of IBubble
+                if ((_updatables.get(i)) instanceof IBubble)
                 {
-                    System.out.println("this class doesnt emit bubbles");
+                    //ADD it to the arraylist of bubbles
+                    _bubbles.add(_updatables.get(i));
                 }
-
+                
+                //CALL the bubble managers add bubbles method and send the arraylist of bubbles
+                _bubbleManager.addBubbles(_bubbles);
             }
             
             
