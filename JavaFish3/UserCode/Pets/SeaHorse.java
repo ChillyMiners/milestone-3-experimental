@@ -3,6 +3,7 @@ import java.util.Random;
 import Framework.Interfaces.*;
 import Exceptions.*;
 import UserCode.Pets.SwimBehaviors.*;
+import UserCode.Bubbles.*;
 
 /**
  * Represents the SeaHorse
@@ -10,8 +11,10 @@ import UserCode.Pets.SwimBehaviors.*;
  * @author Dean Sisman
  * @version 1
  */
-public class SeaHorse extends Pet
+public class SeaHorse extends Pet implements IEmitsBubbles
 {
+    IBubbleManager _bubbleManager;
+    
     /**
      * Constructor for objects of class SeaHorse
      */
@@ -63,5 +66,28 @@ public class SeaHorse extends Pet
     {
         // CALL the swimming behavior's Swim method
         _swimBehavior.swim();
+    }
+    
+    
+    
+    //IMPLEMENTATION OF IEMITSBUBBLES
+    
+    /**
+     * Makes the pet emit a bubble
+     * 
+     */
+    public void emitBubble()
+    {
+        //CALL the bubble managers placeBubble method
+        _bubbleManager.placeBubble(_xPos, _yPos);
+    }
+    
+    /**
+     * Adds a refence to the bubble manager
+     * 
+     */
+    public void addBubbleManager(IBubbleManager bubbleManager)
+    {
+        _bubbleManager = bubbleManager;
     }
 }

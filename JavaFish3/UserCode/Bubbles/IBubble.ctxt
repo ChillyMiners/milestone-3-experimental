@@ -2,7 +2,4 @@
 comment0.params=x\ y
 comment0.target=void\ setPos(double,\ double)
 comment0.text=\r\n\ Sets\ the\ position\ of\ the\ bubble\ to\ the\ parameter\ values\r\n\ \r\n\ @param\ x\ the\ x\ position\r\n\ @param\ y\ the\ y\ position\r\n
-comment1.params=
-comment1.target=void\ ascend()
-comment1.text=\r\n\ Moves\ the\ bubble\ up\ the\ aquarium\r\n\ \r\n
-numComments=2
+numComments=1

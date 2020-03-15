@@ -15,6 +15,7 @@ import Exceptions.*;
 import java.util.ArrayList;
 import java.util.Random;
 import UserCode.Pets.*;
+import UserCode.Bubbles.*;
 //----------END OF CODE ADDED BY DEAN----------
 
 /**
@@ -56,6 +57,9 @@ public class Simulation
     
     // DECLARE an integer to control the amount of Piranha created, call it "_piranhaAmount" and initialize to 1
     private int _piranhaAmount = 2;
+    
+    // DECLARE an integer to control the amount of Bubble created, call it "_bubbleAmount" and initialize to 30
+    private int _bubbleAmount = 30;
     //----------END OF CODE ADDED BY DEAN----------
     
     static void main()
@@ -102,9 +106,29 @@ public class Simulation
         // User try - catch to ensure 3D world was successfully created:
         try
         {
+            //----------START OF CODE ADDED BY DEAN----------
             //CALL the createFish method
             createFish();
             
+            IBubbleManager _bubbleManager = new BubbleManager();
+            
+            //For all the elements in _updatables
+            for (int i = 0; i < _updatables.size(); i++)
+            {
+                if ((_updatables.get(i)) instanceof IEmitsBubbles)
+                {
+                    System.out.println("this class emits bubbles");
+                }
+                else
+                {
+                    System.out.println("this class doesnt emit bubbles");
+                }
+
+            }
+            
+            
+            
+            //----------END OF CODE ADDED BY DEAN----------
             // Start simulation loop:
             while (!endSim)
             {
@@ -115,13 +139,15 @@ public class Simulation
                     // SET: render loop exit condition
                     endSim = true;
                 }
-                        
+                
+                //----------START OF CODE ADDED BY DEAN----------
                 // UPDATE Objects in 3D world:
                 for (int i = 0; i < _updatables.size(); i++)
                 {
                     _updatables.get(i).update();
                 }
-            
+                //----------END OF CODE ADDED BY DEAN----------
+               
                 // UPDATE 3D World:
                 // Apply all updates to the environment.
                 // This must be called at the end of each pass through the simulation loop.
@@ -139,7 +165,7 @@ public class Simulation
 
     }
     
-    
+    //----------START OF CODE ADDED BY DEAN----------
     /**
      * Uses loops to call the IUpdatableFactory's method to create new instances of each fish type
      */
@@ -147,6 +173,13 @@ public class Simulation
     {
         try
         {
+            //FOR the amount specified in _bubbleAmount
+            for (int i = 0; i < _bubbleAmount; i++)
+            {
+                //CALL the factory create method to make  instances of Piranha
+                _updatables.add(_updatableFactory.create(Bubble.class));
+            }
+            
             //FOR the amount specified in _javaFishAmount
             for (int i = 0; i < _javaFishAmount; i++)
             {
@@ -187,6 +220,6 @@ public class Simulation
             //Don't do anything
         }
     }
-    
+    //----------END OF CODE ADDED BY DEAN----------
 
 }

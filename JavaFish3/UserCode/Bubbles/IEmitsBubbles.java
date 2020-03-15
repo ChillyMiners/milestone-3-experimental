@@ -14,4 +14,10 @@ public interface IEmitsBubbles
      * 
      */
     void emitBubble();
+    
+    /**
+     * Adds a refence to the bubble manager
+     * 
+     */
+    void addBubbleManager(IBubbleManager bubbleManager);
 }

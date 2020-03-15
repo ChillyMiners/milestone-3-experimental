@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.params=
+comment0.target=BubbleManager()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ BubbleManager\r\n
+comment1.params=x\ y
+comment1.target=void\ placeBubble(double,\ double)
+comment1.text=\r\n\ Places\ a\ bubble\ at\ the\ parameter\ values\r\n\ \r\n\ @param\ x\ the\ x\ position\r\n\ @param\ y\ the\ y\ position\r\n
+comment2.params=bubbles
+comment2.target=void\ addBubbles(java.util.ArrayList)
+comment2.text=\r\n\ Adds\ the\ references\ to\ the\ bubbles\r\n\ \r\n\ @param\ bubbles\ the\ arraylist\ of\ bubbles\r\n
+numComments=3

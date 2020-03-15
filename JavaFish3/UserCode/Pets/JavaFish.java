@@ -3,6 +3,7 @@ import UserCode.Pets.SwimBehaviors.*;
 import java.util.Random;
 import Framework.Interfaces.*;
 import Exceptions.*;
+import UserCode.Bubbles.*;
 
 /**
  * Represents the JavaFish
@@ -10,8 +11,11 @@ import Exceptions.*;
  * @author Dean Sisman
  * @version 1
  */
-public class JavaFish extends Pet
+public class JavaFish extends Pet implements IEmitsBubbles
 {
+    //DECLARE a reference to IBubbleManager, call it "_bubbleManager"
+    IBubbleManager _bubbleManager;
+    
     /**
      * Constructor for objects of class JavaFish
      */
@@ -61,5 +65,29 @@ public class JavaFish extends Pet
     {
         // CALL the swimming behavior's Swim method
         _swimBehavior.swim();
+    }
+        
+    
+    
+    //IMPLEMENTATION OF IEMITSBUBBLES
+    
+    /**
+     * Makes the pet emit a bubble
+     * 
+     */
+    public void emitBubble()
+    {
+        //CALL the bubble managers placeBubble method
+        _bubbleManager.placeBubble(_xPos, _yPos);
+    }
+    
+    /**
+     * Adds a refence to the bubble manager
+     * 
+     */
+    public void addBubbleManager(IBubbleManager bubbleManager)
+    {
+        //PASS the reference to the bubble manager
+        _bubbleManager = bubbleManager;
     }
 }

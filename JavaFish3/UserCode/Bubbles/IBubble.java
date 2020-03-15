@@ -16,10 +16,4 @@ public interface IBubble
      * @param y the y position
      */
     void setPos(double x, double y);
-    
-    /**
-     * Moves the bubble up the aquarium
-     * 
-     */
-    void ascend();
 }
