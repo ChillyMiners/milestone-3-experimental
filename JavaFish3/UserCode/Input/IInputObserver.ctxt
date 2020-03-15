@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=input
+comment0.target=void\ inputResponse(int[])
+comment0.text=\r\n\ How\ the\ observer\ responds\ when\ gven\ input\r\n\ \r\n\ @param\ input\ the\ input\ data\r\n
+numComments=1

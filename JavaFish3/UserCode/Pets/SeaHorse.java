@@ -61,6 +61,35 @@ public class SeaHorse extends Pet implements IEmitsBubbles
         _swimBehavior.initialize(_xPos, _yPos, _zPos, _xRot, _yRot, _zRot, _randomSpeed, _displayer);
     }
     
+    /**
+     * Places the pet in the world
+     *
+     * @param  world a reference to the IWorld
+     * @param random a reference to the Random class
+     */
+    public void place(IWorld world, Random random, double xPos, double yPos) throws WorldDoesNotExistException
+    {
+        super.place(world, random, "textures/javaFish/Seahorse.png", 0.3, xPos, yPos);
+        
+        _xRot = 180;
+        _yRot = 90;
+        
+        // CALL the _displayer's position method
+        _displayer.position(_xPos, _yPos, _zPos);
+        
+        // CALL the _displayer's orientation method
+        _displayer.orientation(_xRot, _yRot, _zRot);
+        
+        //DECLARE a double to store a randomly generated speed and INITIALIZE to a random value between 0.05 and 0.005
+        double _randomSpeed = (random.nextDouble() * 0.045) + 0.005;
+        
+        //INITIALIZE _swimBehavior to a new instance of BasicHorizontalSwim
+        _swimBehavior = new BasicDiagonalSwim();
+        
+        //CALL the _swimBehavior initialize method
+        _swimBehavior.initialize(_xPos, _yPos, _zPos, _xRot, _yRot, _zRot, _randomSpeed, _displayer);
+    }
+    
     
     
     // IMPLEMENTATION OF IUPDATABLE

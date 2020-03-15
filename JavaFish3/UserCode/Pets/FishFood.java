@@ -1,55 +1,58 @@
 package UserCode.Pets;
 import Framework.Interfaces.*;
 import Framework.Implementations.*;
-import Exceptions.*;
-import UserCode.Pets.SwimBehaviors.*;
 import java.util.Random;
-import java.util.ArrayList;
-
+import Exceptions.*;
 
 /**
- * Abstract class Pet - provides a framework for the fish in the aquarium
+ * Represents the fish rood
  * 
  * @author Dean Sisman
  * @version 1
  */
-public abstract class Pet implements IPlaceable, IUpdatable
+public class FishFood implements IPlaceable
 {
     // DECLARE a reference to IDisplayObject, call it _displayer
-    protected IDisplayObject _displayer;
+    private IDisplayObject _displayer;
     
     // DECLARE a reference to Random, call it _random
-    protected Random _random;
+    private Random _random;
     
     // DECLARE a double for the pet's x position
-    protected double _xPos;
+    private double _xPos;
     
     // DECLARE a double for the pet's y position
-    protected double _yPos;
+    private double _yPos;
     
     // DECLARE a double for the pet's z position
-    protected double _zPos;
+    private double _zPos;
     
     // DECLARE a double for the pet's x orientation
-    protected double _xRot;
+    private double _xRot;
     
     // DECLARE a double for the pet's y orientation
-    protected double _yRot;
+    private double _yRot;
     
     // DECLARE a double for the pet's z orientation
-    protected double _zRot;
-    
-    // DECLARE a reference to ISwimBehavior, call it _swimBehavior
-    protected ISwimBehavior _swimBehavior;
+    private double _zRot;
+
+    /**
+     * Constructor for objects of class FishFood
+     */
+    public FishFood()
+    {
+        
+    }
     
     
     
     //IMPLEMENTATION OF IPLACEABLE
     
-    public void place(IWorld world, Random random, String texture, double scale) throws WorldDoesNotExistException
+    public void place(IWorld world, Random random) throws WorldDoesNotExistException
     {
         // CREATE a new instance of DisplayObject for _displayer
-        _displayer = new DisplayObject("models/billboard/billboard.obj", texture, scale);
+        _displayer = new DisplayObject("models/billboard/billboard.obj",
+                                       "textures/javaFish/Seahorse.png", 0.3);
         
         // PASS the reference to Random
         _random = random;
@@ -65,10 +68,11 @@ public abstract class Pet implements IPlaceable, IUpdatable
         world.addDisplayObject(_displayer);
     }
     
-    public void place(IWorld world, Random random, String texture, double scale, double xPos, double yPos) throws WorldDoesNotExistException
+    public void place(IWorld world, Random random, double xPos, double yPos) throws WorldDoesNotExistException
     {
         // CREATE a new instance of DisplayObject for _displayer
-        _displayer = new DisplayObject("models/billboard/billboard.obj", texture, scale);
+        _displayer = new DisplayObject("models/billboard/billboard.obj",
+                                       "textures/javaFish/Seahorse.png", 0.3);
         
         // PASS the reference to Random
         _random = random;
@@ -83,4 +87,5 @@ public abstract class Pet implements IPlaceable, IUpdatable
         // ADD to 3D world:
         world.addDisplayObject(_displayer);
     }
+
 }

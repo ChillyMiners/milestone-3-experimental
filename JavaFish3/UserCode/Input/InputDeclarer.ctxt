@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=
+comment0.target=InputDeclarer()
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ InputDeclarer\r\n
+comment1.params=input
+comment1.target=void\ initialize(Framework.Interfaces.IInput)
+comment1.text=\r\n\ Initializes\ the\ input\ declarer,\ passing\ the\ required\ reference\ to\ the\ input\r\n\ \r\n\ @param\ input\ the\ source\ of\ input\ data\r\n
+comment2.params=observer
+comment2.target=void\ addObserver(IInputObserver)
+comment2.text=\r\n\ Adds\ a\ new\ observer\ to\ the\ list\ to\ declare\ intput\ to\r\n\r\n\ @param\ oberver\ the\ observer\ to\ be\ added\r\n
+comment3.params=observer
+comment3.target=void\ removeObserver(IInputObserver)
+comment3.text=\r\n\ Removes\ the\ observer\ from\ the\ list\ to\ declare\ intput\ to\r\n\r\n\ @param\ oberver\ the\ observer\ to\ be\ removed\r\n
+comment4.params=
+comment4.target=void\ update()
+comment4.text=\r\n\ The\ update\ method\r\n\r\n
+numComments=5

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import UserCode.Pets.*;
 import UserCode.Bubbles.*;
+import UserCode.Input.*;
 //----------END OF CODE ADDED BY DEAN----------
 
 /**
@@ -24,7 +25,7 @@ import UserCode.Bubbles.*;
  * @author Dean Sisman and Marc Price
  * @version 0.6
  */
-public class Simulation
+public class Simulation implements IInputObserver
 {
     // instance variables:
     // DECLARE a reference to the IWorld, call it '_world':
@@ -63,6 +64,9 @@ public class Simulation
     
     // DECLARE an integer to control the amount of Bubble created, call it "_bubbleAmount" and initialize to 30
     private int _bubbleAmount = 30;
+    
+    // DEVLARE an array of integers to hold the mouse input, call it "_mouseInput" and initialize to 0,0
+    private int[] _mouseInput = {0,0};
     
     static void main()
     {
@@ -227,6 +231,40 @@ public class Simulation
         {
             //Don't do anything
         }
+    }
+    
+    
+    
+    //IMPLEMENTATION OF IINPUTOBSERVER
+    
+    /**
+     * How the observer responds when gven input
+     * 
+     * @param input the input data
+     */
+    public void inputResponse(int[] input)
+    {
+        //SET the values for mouse data to the parameter
+        _mouseInput = input;
+        
+        // COMPUTE the position/orientation for the new lion from mouseVal:
+        Double posn[] = {_mouseInput[0]*0.0077, _mouseInput[1]*0.0077, 1.0};
+        Double angle[]= {0.0,90.0,0.0};
+        try
+        {
+             // INSTANTIATE the new lion as an IUpdatable, call it 'lion':
+             //IUpdatable lion = _factory.create(Lion.class);
+             
+             // ADD lion to _updatables:
+             //_updatables.add(lion);
+             
+             // SPAWN lion in 3D world:
+             //((ISpawnable) lion).spawn(_world, posn[0], posn[1], posn[2], angle[0], angle[1], angle[2]);
+        }
+        catch (Exception e)
+        {
+            // do nothing
+        }        
     }
     //----------END OF CODE ADDED BY DEAN----------
 

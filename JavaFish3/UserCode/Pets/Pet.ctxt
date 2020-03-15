@@ -1,4 +1,6 @@
 #BlueJ class context
 comment0.params=world\ random\ texture\ scale
 comment0.target=void\ place(Framework.Interfaces.IWorld,\ java.util.Random,\ java.lang.String,\ double)
-numComments=1
+comment1.params=world\ random\ texture\ scale\ xPos\ yPos
+comment1.target=void\ place(Framework.Interfaces.IWorld,\ java.util.Random,\ java.lang.String,\ double,\ double,\ double)
+numComments=2

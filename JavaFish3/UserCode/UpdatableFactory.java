@@ -4,7 +4,7 @@ import UserCode.Bubbles.*;
 
 
 /**
- * An implementation of IUpdatableFactory which creates instances of IUpdatable on request
+ * Creates instances of IUpdatable on request
  * 
  * @author Dean Sisman
  * @version 1
@@ -14,7 +14,14 @@ public class UpdatableFactory implements IUpdatableFactory
     /**
      * Constructor for objects of class UpdatableFactory
      */
-    public UpdatableFactory(){}
+    public UpdatableFactory()
+    {
+        
+    }
+    
+    
+    
+    //IMPLEMENTATION OF IUPDATABLEFACTORY
 
     /**
      * Creates and returns a new instance of IUpdateable

@@ -1,5 +1,8 @@
 #BlueJ class context
 comment0.params=world\ random
 comment0.target=void\ place(Framework.Interfaces.IWorld,\ java.util.Random)
-comment0.text=\r\n\ Place\ the\ token\ in\ the\ scene\r\n\ \r\n\ @param\ world\ reference\ to\ the\ world\r\n
-numComments=1
+comment0.text=\r\n\ Place\ the\ token\ in\ the\ scene\r\n\ \r\n\ @param\ world\ reference\ to\ the\ world\r\n\ @param\ random\ reference\ to\ the\ Random\ class\r\n
+comment1.params=world\ random\ xPos\ yPos
+comment1.target=void\ place(Framework.Interfaces.IWorld,\ java.util.Random,\ double,\ double)
+comment1.text=\r\n\ Place\ the\ token\ in\ the\ scene\ at\ a\ custom\ position\r\n\ \r\n\ @param\ world\ reference\ to\ the\ world\r\n\ @param\ random\ reference\ to\ the\ Random\ class\r\n\ @param\ xPos\ the\ x\ position\r\n\ @param\ yPos\ the\ y\ position\r\n
+numComments=2
